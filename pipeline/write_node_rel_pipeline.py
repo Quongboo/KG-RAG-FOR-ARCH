@@ -16,11 +16,11 @@ class WriteNodeRel():
     """
 
     def __init__(self):
-        self.clean_all_data = get_config()['database']['clean_all_data']
+        self.clean_all_data = bool(get_config()['database']['clean_all_data'])
 
     def process(self, node_list: List[Node] = [], relation_list: List[Relationship] = []):
 
-        if self.clean_all_data == True:
+        if self.clean_all_data:
             del_all_node_rel()
 
         if node_list is not None:

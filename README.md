@@ -1,5 +1,11 @@
 ## KG-RAG for ARCH
+
+<div style="text-align: center;">
+  <img src="graph.png" style="max-width: 30%; height: auto;" alt="《综合医院建筑设计规范》抽取的实体及关系">
+</div>
+
 ### 这个项目通过大语言模型抽取建筑规范的关系，并将其写入neo4j数据库后进行查询
+
 
 本项目主要实现基于Neo4j的建筑规范文本RAG，具体分为以下两个阶段：
 
@@ -12,7 +18,7 @@
         3、问题查询：结合召回的知识，构建prompt进行大语言模型的问题查询
 
     目前大语言模型使用deepseek
-
+    neo4j前端页面：124.220.108.101:7474/browser/
 
 #### 文件
 

@@ -25,32 +25,37 @@ class KnowledgeExtractPadder():
         for parser in parse_list:
             if parser[0] == '"entity"' and len(parser) >= 4:  # 解析实体，且保证解析的长度正确
                 node = Node()
-                node_name = clean_str(parser[1].upper())
-                node_class = clean_str(parser[2].upper())
-                node_desc = clean_str(parser[3])
-                node_info = convert_json_to_dict(parser[4])
+                try:
+                    node_name = clean_str(parser[1].upper())
+                    node_class = clean_str(parser[2].upper())
+                    node_desc = clean_str(parser[3])
+                    node_info = convert_json_to_dict(parser[4])
 
+                    node.set_node_name(node_name)  # 存储实体
+                    node.set_node_class(node_class)
+                    node.set_node_desc(node_desc)
+                    node.set_node_info(node_info)
 
-                node.set_node_name(node_name)  # 存储实体
-                node.set_node_class(node_class)
-                node.set_node_desc(node_desc)
-                node.set_node_info(node_info)
-
-                node_list.append(node)
+                    node_list.append(node)
+                except:
+                    pass
 
             if parser[0] == '"relationship"' and len(parser) >= 4:  # 解析关系
                 relation = Relationship()
-                source_entity = clean_str(parser[1].upper())
-                target_entity = clean_str(parser[2].upper())
-                relationship_desc = clean_str(parser[3])
-                relationship_strength = convert_int(clean_str(parser[4]))  # 保障为数字
+                try:
+                    source_entity = clean_str(parser[1].upper())
+                    target_entity = clean_str(parser[2].upper())
+                    relationship_desc = clean_str(parser[3])
+                    relationship_strength = convert_int(clean_str(parser[4]))  # 保障为数字
 
-                relation.set_source_entity(source_entity)
-                relation.set_target_entity(target_entity)
-                relation.set_relationship_desc(relationship_desc)
-                relation.set_relationship_strength(relationship_strength)
+                    relation.set_source_entity(source_entity)
+                    relation.set_target_entity(target_entity)
+                    relation.set_relationship_desc(relationship_desc)
+                    relation.set_relationship_strength(relationship_strength)
 
-                relation_list.append(relation)
+                    relation_list.append(relation)
+                except:
+                    pass
 
         return node_list, relation_list
 
@@ -147,6 +152,5 @@ class KnowledgeExtract():
         llm_output_list = self.llm_request_func(message_list)
         parse_list = self.parser.parser_llm_output_list(llm_output_list)
         node_list, relation_list = self.padder.padding(parse_list)
-
 
         return node_list, relation_list
