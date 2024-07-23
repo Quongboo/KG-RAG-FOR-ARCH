@@ -1,0 +1,20 @@
+[
+    {
+        "source_entity_name": "\"制氧站\"",
+        "target_entity_name": "\"氧气汇流排间\"",
+        "relationship_desc": "\"制氧站和氧气汇流排间在医院工艺设计中是相关联的设施，共同确保氧气的供应和安全\"",
+        "relationship_strength": "8"
+    },
+    {
+        "source_entity_name": "\"制氧站\"",
+        "target_entity_name": "\"氧气储罐\"",
+        "relationship_desc": "\"制氧站和氧气储罐在医院工艺设计中是相关联的设施，共同确保氧气的储存和安全\"",
+        "relationship_strength": "8"
+    },
+    {
+        "source_entity_name": "\"氧气汇流排间\"",
+        "target_entity_name": "\"氧气储罐\"",
+        "relationship_desc": "\"氧气汇流排间和氧气储罐在医院工艺设计中是相关联的设施，共同确保氧气的供应和储存安全\"",
+        "relationship_strength": "7"
+    }
+]

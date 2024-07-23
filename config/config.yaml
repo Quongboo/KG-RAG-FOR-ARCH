@@ -1,0 +1,18 @@
+llm_api_key:
+  deepseek_api_key: "请填写"
+
+database:
+  neo4j_bolt: "请填写"
+  neo4j_auth: "请填写"
+  neo4j_password: "请填写"
+  clean_all_data: False
+
+knowledge_extract:
+  chunk_length: 2000
+  node_class: "请填写"
+
+token_limit: 128000
+
+search:
+  node_threshold_value: 3
+
