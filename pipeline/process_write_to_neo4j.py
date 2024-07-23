@@ -37,8 +37,8 @@ class ProcessWrite:
         current_time = time.time()
         node_cached_path = f"cached/{current_time}_node.json"
         rel_cached_path = f"cached/{current_time}_rel.json"
-        write_to_json(node_cached_path, node_list)
-        write_to_json(rel_cached_path, relation_list)
+        write_to_json(node_cached_path, json_node_list)
+        write_to_json(rel_cached_path, json_rel_list)
 
     def process(self, words_path: str):
         node_list, relation_list = self.extract.process(words_path)
